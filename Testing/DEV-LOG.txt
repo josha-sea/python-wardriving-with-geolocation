@@ -1,0 +1,5 @@
+Solution to tracking exact location of laptop:
+- Connect to phone's wifi hotspot
+- use geocoder module --> NOPE
+- use selemium with google maps -> YESSSSSSSS -> maybe, very unreliable
+- BAMMM
