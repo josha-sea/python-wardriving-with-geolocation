@@ -1,4 +1,7 @@
 env/
 cl-script/__pycache__
-cl-script/database
+cl-script/database/
+
 start-venv.bat
+main script/__pycache__/
+main script/database/

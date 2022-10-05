@@ -19,7 +19,6 @@ FETCH_WIFI_ID = "SELECT id FROM wifi WHERE bssid = (?)"
 GET_ALL_WIFIS = "SELECT * FROM wifi"
 
 # Functions
-
 def connect(path):
 	return sqlite3.connect(path)
 
