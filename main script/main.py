@@ -29,7 +29,8 @@ def main():
 	connection = database.connect(DATABASE_PATH)
 	database.create_tables(connection)
 	interface = scanner.get_interface()
-	gps_module = gps.get_gps()
+	com_port = input("Please type the port number of the COM-Connection: ")
+	gps_module = gps.get_gps(com_port)
 
 	try:
 		while True:
@@ -52,6 +53,8 @@ def main():
 	except Exception as e:
 		raise e
 	except KeyboardInterrupt:
+		print("")
+		print(f"Currently we have {database.get_wifi_count(connection)} entrys in the wifi-database.")
 		print("Script interrupted by User")
 		exit(0)
 

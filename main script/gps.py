@@ -5,9 +5,9 @@ GPS Script with GPS-Module
 import serial
 import pynmea2
 
-def get_gps():
+def get_gps(com_port):
 	try:
-		return serial.Serial("com7", 4800)
+		return serial.Serial(f"com{com_port}", 4800)
 	except:
 		print("No GPS module found")
 		return False
