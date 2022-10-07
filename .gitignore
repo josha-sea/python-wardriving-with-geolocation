@@ -1,5 +1,5 @@
 env/
 start-venv.bat
-mainscript/__pycache__/
-mainscript/database/*
-mainscript/logs/*
+main_script/__pycache__/
+main_script/database/*
+main_script/logs/*
