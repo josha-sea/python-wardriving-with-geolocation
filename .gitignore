@@ -1,4 +1,4 @@
 env/
 start-venv.bat
 main script/__pycache__/
-main script/database/
+main script/database/data.db
