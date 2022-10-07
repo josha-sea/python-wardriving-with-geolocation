@@ -1,3 +1,0 @@
-'''
-Check-python-modules Script
-'''
