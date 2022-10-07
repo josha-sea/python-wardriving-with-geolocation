@@ -40,7 +40,7 @@ def main():
 				
 
 				if results:
-					print(f"We found {len(results)} at location {location}")
+					print(f"We found {len(results)} wifis at location {location}")
 
 					for res in results:
 						database.add_wifi(connection, res.bssid, res.ssid, res.freq)
