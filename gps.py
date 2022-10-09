@@ -6,7 +6,7 @@ import serial
 import pynmea2
 import logging
 
-LOG_PATH = f"./logs/{__name__}.log"
+LOG_PATH = f"../logs/{__name__}.log"
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)

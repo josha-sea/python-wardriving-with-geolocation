@@ -9,9 +9,9 @@ import os
 from datetime import datetime
 import logging
 
-DATABASE_DIR = "./database"
+DATABASE_DIR = "../database"
 DATABASE_PATH = f"{DATABASE_DIR}/data.db"
-LOGS_DIR = "./logs"
+LOGS_DIR = "../logs"
 LOG_PATH = f"{LOGS_DIR}/{__name__}.log"
 
 def check_dirs():
