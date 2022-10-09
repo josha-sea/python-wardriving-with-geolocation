@@ -1,9 +1,7 @@
 '''
 Main Script - CLI-Tool
 '''
-import database
-import gps
-import scanner
+
 
 import os
 from datetime import datetime
@@ -21,13 +19,14 @@ def check_dirs():
 		os.mkdir(LOGS_DIR)
 
 def greetings():
-	print("Wifi Mapper by Josha Sea")
+	print("[#] Wifi Mapper by Josha Sea")
 	print("...")
-	print("Start scanning and location mapping...")
-	print("Results are stored in database-directory (./database/)...")
-	print("Make sure gps-adapter is plugged in!")
-	print("Make sure wifi is turned off!")
-	print("Good luck!")
+	print("[~] Start scanning and location mapping...")
+	print(f"[+] Results are stored in database-directory ({os.path.abspath(DATABASE_DIR)})")
+	print(f"[+] Logs are stored in logs-directory ({os.path.abspath(LOGS_DIR)})")
+	print("[!] Make sure gps-adapter is plugged in")
+	print("[!] Make sure wifi is turned off")
+	print("[#] Good luck!")
 	print()
 
 def main():
@@ -43,7 +42,8 @@ def main():
 			try:
 				results = scanner.scan(interface)
 				location = gps.get_location(gps_module)
-				
+
+				if results == "break" or location == "break": break
 
 				if results:
 					print(f"We found {len(results)} wifis at location {location}")
@@ -54,29 +54,36 @@ def main():
 					for res in results:
 						date_time = datetime.now()
 						database.add_signal(connection, res.bssid, res.signal, location["latitude"], location["longitude"] , date_time)
+				else:
+					continue
 			except:
 				logger.exception("Main loop failed")
-				exit(-1)
-	except KeyboardInterrupt:
-		print("")
+				break
+	except:
+		print()
+		print(f"Something went wrong. Take a look at {__name__}.log.")
+		logger.exception(f"Somethink went wrong @ {__name__} module")
+	finally:
+		print()
 		print(f"Currently we have {database.get_wifi_count(connection)} entrys in the wifi-database.")
-		print("Script interrupted by User")
-		exit(0)
+
 
 if __name__ == '__main__':
+	check_dirs()
+	import database
+	import gps
+	import scanner
 
 	logger = logging.getLogger(__name__)
 	logger.setLevel(logging.ERROR)
 	logger.propagate = False
-
-
-	formatter = logging.Formatter("[%(asctime)s:%(name)s:%(levelname)s:%(message)s]")
-
+	formatter = logging.Formatter("[%(asctime)s:%(name)s:%(levelname)s:%(funcName)s:%(message)s]")
 	file_handler = logging.FileHandler(LOG_PATH)
 	file_handler.setFormatter(formatter)
 
 	logger.addHandler(file_handler)
 
+	
 	greetings()
-	check_dirs()
+	
 	main()
