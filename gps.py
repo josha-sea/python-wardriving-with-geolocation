@@ -12,13 +12,9 @@ LOG_PATH = f"../logs/{__name__}.log"
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 logger.propagate = False
-
-
 formatter = logging.Formatter("[%(asctime)s:%(name)s:%(levelname)s:%(funcName)s:%(message)s]")
-
 file_handler = logging.FileHandler(LOG_PATH)
 file_handler.setFormatter(formatter)
-
 logger.addHandler(file_handler)
 
 def get_gps(com_port):
@@ -53,6 +49,7 @@ def get_location(gps):
 						break
 			
 			except:
+				print(f"Something went wrong. Take a look at {__name__}.log.")
 				logger.exception("Failed to read and return gps-data")
 				sys.exit(-1)
 

@@ -1,7 +1,6 @@
 '''
-Main Script - CLI-Tool
+Main Script - Shell Script
 '''
-
 
 import os
 from datetime import datetime
@@ -69,7 +68,9 @@ def main():
 
 
 if __name__ == '__main__':
+
 	check_dirs()
+
 	import database
 	import gps
 	import scanner
@@ -80,10 +81,7 @@ if __name__ == '__main__':
 	formatter = logging.Formatter("[%(asctime)s:%(name)s:%(levelname)s:%(funcName)s:%(message)s]")
 	file_handler = logging.FileHandler(LOG_PATH)
 	file_handler.setFormatter(formatter)
-
 	logger.addHandler(file_handler)
 
-	
 	greetings()
-	
 	main()
