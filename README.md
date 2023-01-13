@@ -1,10 +1,35 @@
-# Python Script for mapping wifi to geo-location
+# Python WIFI-geolocation mapping tool
 
-A shell script written in python for mapping and storing wifi's in a database with geo-location. 
+## Motivation
+- Ever wanted a database with the wifis of your area mapped to geolocation?
+You came to the right place.
+This script is inspired by the concept of wardriving and a certain curiosity.
 
-Inspired by the practice of war-driving and a curiosity concerning the status-quo of wifi's in the city I live in.
+## Description
+A commandline-script written in Python that scans nearby wifi-access-points and stores them in a SQLite database with geolocation.
 
-Note: Requieres some gps-module or gps-tool that feeds data in NMEA-format to the script. I use the GPS Module G-Mouse VK-162 from aliexpress (no affilliation)
+## Installing / Compiling
+### What you need:
 
+- Download or clone the git repo:
+<pre> <code> git clone https://github.com/josha-sea/python-wifi-mapping-tool.git</code> </pre>
+
+- A laptop
+- A gps-module that feeds NMEA-data to the script. Tested with this module from AliExpress: G-Mouse VK-162 (no affilliation)
+
+
+## Usage
+After cloning or downloading the git repo, open a shell in the directory:
+
+- Open a CMD-Shell in the directory and install the requirements.txt
+<pre> <code>pip install -r requirements.txt</code> </pre>
+
+- Find out the COM-port of your GPS-module
+
+- Start the script:
+<pre> <code>python main.py</code> </pre>
+
+The paths to the database-directory and logs-directory will be shown and the scannin' and mappin' will start.
+Have fun!
 
 by Josha Sea

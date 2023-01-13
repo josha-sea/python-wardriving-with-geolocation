@@ -24,7 +24,7 @@ def greetings():
 	print(f"[+] Results are stored in database-directory ({os.path.abspath(DATABASE_DIR)})")
 	print(f"[+] Logs are stored in logs-directory ({os.path.abspath(LOGS_DIR)})")
 	print("[!] Make sure gps-adapter is plugged in")
-	print("[!] Make sure wifi is turned off")
+	print("[!] Make sure wifi is turned on but not connected to any wifi")
 	print("[#] Good luck!")
 	print()
 

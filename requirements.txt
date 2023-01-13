@@ -1,0 +1,7 @@
+comtypes==1.1.14
+future==0.18.2
+iso8601==1.1.0
+pynmea2==1.18.0
+pyserial==3.5
+pywifi==1.1.12
+PyYAML==6.0
